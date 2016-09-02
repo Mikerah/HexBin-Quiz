@@ -10,7 +10,6 @@ char * convert_dec_to_hex(char * to_convert);
 // Convert a number from binary to decimal
 char * convert_bin_to_dec(char * to_convert);
 
-char * convert_dec_to_hex(char * to_convert);
 // Convert a number from binary to hexidecimal
 char * convert_bin_to_hex(char * to_convert);
 
