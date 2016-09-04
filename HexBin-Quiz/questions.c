@@ -15,34 +15,48 @@
  *
  */
 
-char * generate_questions(int number_of_questions, char * question_code) {
-    char * questions = malloc(sizeof(char *) * number_of_questions);
-    switch(question_code){
-        case "D2B":
-            for(int i=0; i< number_of_questions; i++) {
-                questions[i] = strcat(generate_decimal_number()," to binary: ");
-            }
-        case "B2D":
-            for(int i=0; i< number_of_questions; i++) {
-                questions[i] = strcat(generate_binary_number()," to decimal: ");
-            }
-        case "D2H":
-            for(int i=0; i< number_of_questions; i++) {
-                questions[i] = strcat(generate_decimal_number()," to hexadecimal: ");
-            }
-        case "H2B":
-            for(int i=0; i< number_of_questions; i++) {
-                questions[i] = strcat(generate_hexadecimal_number()," to binary: ");
-            }
-        case "H2D":
-            for(int i=0; i< number_of_questions; i++) {
-                questions[i] = strcat(generate_hexadecimal_number()," to decimal: ");
-            }
-        case "B2H":
-            for(int i=0; i< number_of_questions; i++) {
-                questions[i] = strcat(generate_binary_number()," to hexadecimal: ");
+void generate_questions(int number_of_questions, char * questions[number_of_questions], char question_code[4]) {
+    if(strcmp(question_code, "D2B") == 0) {
+        for(int i=0; i< number_of_questions; i++) {
+                char * question = malloc(sizeof(char) * 100);
+                sprintf(question, "%s", generate_decimal_number());
+                strcat(question," to binary: \n");
+                questions[i] = question;
             }
     }
-    return questions;
-
+    else if(strcmp(question_code, "B2D") == 0) {
+        for(int i=0; i< number_of_questions; i++) {
+                char * question = generate_binary_number();
+                strcat(question," to decimal: \n");
+                strcpy(questions[i], question);
+            }
+    }
+    else if(strcmp(question_code, "D2H") == 0) {
+        for(int i=0; i< number_of_questions; i++) {
+                char * question = generate_decimal_number();
+                strcat(question," to hexadecimal: \n");
+                strcpy(questions[i], question);
+            }
+    }
+    else if(strcmp(question_code, "H2B") == 0) {
+        for(int i=0; i< number_of_questions; i++) {
+                char * question = generate_hexadecimal_number();
+                strcat(question," to binary: \n");
+                strcpy(questions[i], question);
+            }
+    }
+    else if(strcmp(question_code, "H2D") == 0) {
+        for(int i=0; i< number_of_questions; i++) {
+                char * question = generate_hexadecimal_number();
+                strcat(question," to decimal: \n");
+                strcpy(questions[i], question);
+            }
+    }
+    else if(strcmp(question_code, "B2H") == 0) {
+        for(int i=0; i< number_of_questions; i++) {
+                char * question = generate_binary_number();
+                strcat(question," to hexadecimal: \n");
+                strcpy(questions[i], question);
+            }
+    }
 }
