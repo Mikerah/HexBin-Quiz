@@ -18,7 +18,7 @@
 void generate_questions(int number_of_questions, char * questions[number_of_questions], char question_code[4]) {
     if(strcmp(question_code, "D2B") == 0) {
         for(int i=0; i< number_of_questions; i++) {
-                char * question = malloc(sizeof(char) * 100);
+                char * question = malloc(sizeof(char) * 150);
                 sprintf(question, "%s", generate_decimal_number());
                 strcat(question," to binary: \n");
                 questions[i] = question;
@@ -26,37 +26,42 @@ void generate_questions(int number_of_questions, char * questions[number_of_ques
     }
     else if(strcmp(question_code, "B2D") == 0) {
         for(int i=0; i< number_of_questions; i++) {
-                char * question = generate_binary_number();
+                char * question = malloc(sizeof(char) * 150);
+                sprintf(question, "%s", generate_binary_number());
                 strcat(question," to decimal: \n");
-                strcpy(questions[i], question);
+                questions[i] = question;
             }
     }
     else if(strcmp(question_code, "D2H") == 0) {
         for(int i=0; i< number_of_questions; i++) {
-                char * question = generate_decimal_number();
+                char * question = malloc(sizeof(char) * 150);
+                sprintf(question, "%s", generate_decimal_number());
                 strcat(question," to hexadecimal: \n");
-                strcpy(questions[i], question);
+                questions[i] = question;
             }
     }
     else if(strcmp(question_code, "H2B") == 0) {
         for(int i=0; i< number_of_questions; i++) {
-                char * question = generate_hexadecimal_number();
+                char * question = malloc(sizeof(char) * 150);
+                sprintf(question, "%s", generate_hexadecimal_number());
                 strcat(question," to binary: \n");
-                strcpy(questions[i], question);
+                questions[i] = question;
             }
     }
     else if(strcmp(question_code, "H2D") == 0) {
         for(int i=0; i< number_of_questions; i++) {
-                char * question = generate_hexadecimal_number();
+                char * question = malloc(sizeof(char) *150);
+                sprintf(question, "%s", generate_hexadecimal_number());
                 strcat(question," to decimal: \n");
-                strcpy(questions[i], question);
+                questions[i] = question;
             }
     }
     else if(strcmp(question_code, "B2H") == 0) {
         for(int i=0; i< number_of_questions; i++) {
-                char * question = generate_binary_number();
+                char * question = malloc(sizeof(char) * 150);
+                sprintf(question, "%s", generate_binary_number());
                 strcat(question," to hexadecimal: \n");
-                strcpy(questions[i], question);
+                questions[i] = question;
             }
     }
 }

@@ -21,6 +21,7 @@ int main()
     printf("\tBinary -> Decimal (B2D)\n");
     printf("\tHexadecimal -> Decimal (H2D)\n");
 
+
     char question_code[4];
     printf("Which type of quiz would you like to do? ");
     scanf("%s", question_code);
@@ -29,16 +30,22 @@ int main()
     printf("How many questions do you want? ");
     scanf("%d", &number_of_questions);
 
+
     printf("**********************************************************************************************************\n\n");
 
+
     char * questions[number_of_questions];
+    memset(questions, "", number_of_questions*sizeof(char *));
 
     generate_questions(number_of_questions, questions ,question_code);
 
 
+
+    int counter = 0;
     for(int i=0; i<number_of_questions;i++){
         printf(questions[i]);
     }
+
 
 
 
