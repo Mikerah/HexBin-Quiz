@@ -37,16 +37,14 @@ int main()
     char * questions[number_of_questions];
     memset(questions, "", number_of_questions*sizeof(char *));
 
+    srand(time(NULL));
     generate_questions(number_of_questions, questions ,question_code);
 
-
-
     int counter = 0;
+
     for(int i=0; i<number_of_questions;i++){
         printf(questions[i]);
     }
-
-
 
 
     return 0;
