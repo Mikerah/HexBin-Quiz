@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 #include <stdlib.h>
 #include <strings.h>
 #include "numbers.h"
@@ -19,7 +20,7 @@ void generate_questions(int number_of_questions, char * questions[number_of_ques
     srand(time(NULL));
     if(strcmp(question_code, "D2B") == 0) {
         for(int i=0; i< number_of_questions; i++) {
-                char * question = malloc(sizeof(char) * 150);
+                char * question = (char *)malloc(sizeof(char) * 150);
                 sprintf(question, "%s", generate_decimal_number());
                 strcat(question," to binary: \n");
                 questions[i] = question;
@@ -27,7 +28,7 @@ void generate_questions(int number_of_questions, char * questions[number_of_ques
     }
     else if(strcmp(question_code, "B2D") == 0) {
         for(int i=0; i< number_of_questions; i++) {
-                char * question = malloc(sizeof(char) * 150);
+                char * question = (char *)malloc(sizeof(char) * 150);
                 sprintf(question, "%s", generate_binary_number());
                 strcat(question," to decimal: \n");
                 questions[i] = question;
@@ -35,7 +36,7 @@ void generate_questions(int number_of_questions, char * questions[number_of_ques
     }
     else if(strcmp(question_code, "D2H") == 0) {
         for(int i=0; i< number_of_questions; i++) {
-                char * question = malloc(sizeof(char) * 150);
+                char * question = (char *)malloc(sizeof(char) * 150);
                 sprintf(question, "%s", generate_decimal_number());
                 strcat(question," to hexadecimal: \n");
                 questions[i] = question;
@@ -43,7 +44,7 @@ void generate_questions(int number_of_questions, char * questions[number_of_ques
     }
     else if(strcmp(question_code, "H2B") == 0) {
         for(int i=0; i< number_of_questions; i++) {
-                char * question = malloc(sizeof(char) * 150);
+                char * question = (char *)malloc(sizeof(char) * 150);
                 sprintf(question, "%s", generate_hexadecimal_number());
                 strcat(question," to binary: \n");
                 questions[i] = question;
@@ -51,7 +52,7 @@ void generate_questions(int number_of_questions, char * questions[number_of_ques
     }
     else if(strcmp(question_code, "H2D") == 0) {
         for(int i=0; i< number_of_questions; i++) {
-                char * question = malloc(sizeof(char) *150);
+                char * question = (char *)malloc(sizeof(char) * 150);
                 sprintf(question, "%s", generate_hexadecimal_number());
                 strcat(question," to decimal: \n");
                 questions[i] = question;
@@ -59,7 +60,7 @@ void generate_questions(int number_of_questions, char * questions[number_of_ques
     }
     else if(strcmp(question_code, "B2H") == 0) {
         for(int i=0; i< number_of_questions; i++) {
-                char * question = malloc(sizeof(char) * 150);
+                char * question = (char *)malloc(sizeof(char) * 150);
                 sprintf(question, "%s", generate_binary_number());
                 strcat(question," to hexadecimal: \n");
                 questions[i] = question;

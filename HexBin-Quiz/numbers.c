@@ -7,43 +7,43 @@
 
 // Converts a number from decimal to binary
 const char * convert_dec_to_bin(const char * to_convert) {
-    int num_in_dec = strtol(to_convert, NULL, 10);
-    int rem = 0;
+    long num_in_dec = strtol(to_convert, NULL, 10);
+    int rem;
     int bin = 0, i = 1;
 
-    while(num_in_dec){
+    while(num_in_dec != 0){
         rem = num_in_dec%2;
         num_in_dec /= 2;
         bin += (rem * i);
         i *= 10;
     }
 
-    static char num[100] = {'\0'};
-    sprintf(num, "%d", bin);
-    return num;
+    static char num_in_bin[100];
+    sprintf(num_in_bin, "%d", bin);
+    return num_in_bin;
 
 }
 
 const char * convert_dec_to_hex(const char * to_convert) {
     int num_in_dec = strtol(to_convert, NULL, 10);
-    static char hex[100] = {'\0'};
+    static char hex[100];
     sprintf(hex, "%x", num_in_dec);
     return hex;
 }
 
 // Convert a number from binary to decimal
 const char * convert_bin_to_dec(const char * to_convert) {
-    int num_in_dec = strtol(to_convert, NULL, 2);
+    int num_in_bin = strtol(to_convert, NULL, 2);
     int rem = 0;
-    int dec = 0, i = 0;
-    while(num_in_dec != 0){
-        rem = num_in_dec%10;
-        num_in_dec /= 10;
+    int dec = 0, i = 1;
+    while(num_in_bin != 0){
+        rem = num_in_bin%10;
+        num_in_bin /= 10;
         dec += (rem * pow(2,i));
         ++i;
     }
 
-    static char num[100] = {'\0'};
+    static char num[100];
     sprintf(num, "%d", dec);
     return num;
 }
@@ -67,14 +67,16 @@ const char * convert_hex_to_dec(const char * to_convert) {
 
 // Convert a number from hexidecimal to binary
 const char * convert_hex_to_bin(const char * to_convert) {
+    /*
     static char num[100] = {'\0'};
     sprintf(num, "%s", convert_dec_to_bin(convert_hex_to_dec(to_convert)));
     return num;
+    */
 }
 
 // Generate a random decimal number
 const char * generate_decimal_number() {
-    static char num[100] = {'\0'};
+    static char num[100];
     sprintf(num, "%d", rand());
     return num;
 }
